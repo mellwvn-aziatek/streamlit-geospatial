@@ -19,37 +19,24 @@ st.sidebar.info(
     """
 )
 
-st.sidebar.title("Support")
-st.sidebar.info(
-    """
-    Data Data Data.  Data is our food.
-    """
-)
-
-
+# Customize page title
 st.title("IX Geospatial Applications")
 
 st.markdown(
     """
-    This multi-page web app demonstrates various interactive geospatial web apps.
-
+    This multipage app template demonstrates various interactive web apps.
     """
 )
 
-st.info("Click on the left sidebar menu to navigate to the different apps.")
+st.header("Instructions")
 
-st.subheader("Timelapse of Satellite Imagery")
-st.markdown(
-    """
-    The following timelapse animations were created using the Timelapse web app. Click `Timelapse` on the left sidebar menu to create your own timelapse for any location around the globe.
+markdown = """
+Pages show the capabilities of this library, not actual data.
+
 """
-)
 
-row1_col1, row1_col2 = st.columns(2)
-with row1_col1:
-    st.image("https://github.com/giswqs/data/raw/main/timelapse/spain.gif")
-    st.image("https://github.com/giswqs/data/raw/main/timelapse/las_vegas.gif")
+st.markdown(markdown)
 
-with row1_col2:
-    st.image("https://github.com/giswqs/data/raw/main/timelapse/goes.gif")
-    st.image("https://github.com/giswqs/data/raw/main/timelapse/fire.gif")
+m = leafmap.Map(minimap_control=True)
+m.add_basemap("OpenTopoMap")
+m.to_streamlit(height=500)
